@@ -2,21 +2,19 @@ require('dotenv').config(); //esto me deja usar la API KEY
 const { Router } = require('express');
 const axios = require('axios');
 const { API_KEY } = process.env;
-const { Videogame, Genre, Op} = require('../db.js')
-
-
-
+const { Videogame, Genre, Op} = require('../db.js');
 
 const router = Router();
+
 router.get('/', async (req, res) => {
-    const totalGames = []; //cambiar nombre pq estan TODOS los games
+    const totalGames = []; 
     const { name } = req.query;
     if (name) { //si viene por name
         totalGames.push(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`);
         totalGames.push(Videogame.findAll({
             where: {
                 name: {
-                    [Op.like]: `%${name}%`
+                    [Op.like]: `%${name}%` //por si me mandan con mayusculas y minusculas
                 }
             }})
         );
@@ -25,17 +23,17 @@ router.get('/', async (req, res) => {
         totalGames.push(axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=${i}`)
         );
     }
-    totalGames.push(Videogame.findAll({
+    totalGames.push(Videogame.findAll({ //pusheo los games de la DB
         include: [{
             model: Genre,
             as: 'genres',
             attributes: ['id', 'name']
         }]
-    })) //
+    })) 
     }
     const response = await Promise.allSettled(totalGames); //espero a que todas las promesas se resuelvan
     //console.log(response)
-    const okGames = response.filter(res => res.status === 'fulfilled'); 
+    const okGames = response.filter(res => res.status === 'fulfilled'); //fulfilled o rejected
     const resGames = [];
     okGames.pop().value.forEach(game => {
         resGames.push({ //los juegos de la DB
@@ -61,7 +59,8 @@ router.get('/', async (req, res) => {
         })
     })
 })
-res.json(resGames)
+return res.status(200).json(resGames) ;
+return res.status(404).send('No games found')
         //push a resGAmes un objeto nuevo con lo que me devuelve que yo quiero de la DB
         //value: tiene objetos
         //return con lo que yo quiero afgarrar de la DB
