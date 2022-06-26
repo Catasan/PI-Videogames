@@ -1,0 +1,13 @@
+
+
+.btnP{
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 80%;
+    font-weight: bolder;
+    background-color: rgba(255, 255, 255, .5);
+    border-color: rgba(72, 60, 60);
+    margin: 2px;
+    padding: 5px;
+    width: 30px;
+}

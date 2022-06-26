@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     const totalGames = []; 
     const { name } = req.query;
     if (name) { //si viene por name
-        totalGames.push(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`);
+        totalGames.push(axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`));
         totalGames.push(Videogame.findAll({
             where: {
                 name: {
@@ -40,22 +40,24 @@ router.get('/', async (req, res) => {
             name: game.name, 
                 id: game.id,
                 img: game.background_image,
-                genre: game.genres.map(game => game.name),
-                //released: game.released,
+                genres: game.genres.map(game => game.name),
+                released: game.released,
                 rating: game.rating,
-                //platforms: game.platforms.map(game => game)
+                platforms: game.platforms.map(game => game),
+                createdInDb: game.createdInDb
         })
     })
     okGames.forEach(obj => { //los juegos de la API
+        
         obj.value.data.results.forEach(game => {
         resGames.push({
             name: game.name, 
                 id: game.id,
                 img: game.background_image,
-                genre: game.genres.map(game => game.name),
-                //released: game.released,
+                genres: game.genres.map(game => game.name),
+                released: game.released,
                 rating: game.rating,
-                //platforms: game.platforms.map(game => game)
+                platforms: game.platforms.map(game => game)
         })
     })
 })

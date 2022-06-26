@@ -1,0 +1,202 @@
+/* CSS */
+.cardCont{
+    height: 100%;
+    width: 500px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    float:left;
+    position:inherit;
+    padding:10px;
+    align-items: center;
+    margin-left: 130px;
+    margin-right: 15px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    border: black solid 1px;
+    border-radius: 10px;
+    background-color:#8b8b8b;
+    background:linear-gradient(to bottom, #a0bee5 5%, #db9e8c 100%);
+}
+
+.cardName{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  text-shadow: 3px 5px 14px black;
+  color: rgb(255, 255, 255);
+  background:linear-gradient(to bottom, #cfe4ff 5%, #313d4a 100%);
+  background-color:#f7b96c;
+  border-radius:10px;
+  border:1px solid #ffffff;
+}
+
+.cardImg{
+  width: 280px;
+  height: 175px; 
+  border-radius:10px;
+}
+
+.cardGenres{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  font-weight:bolder;
+  text-shadow: 3px 5px 14px black;
+  color: rgb(255, 255, 255);
+  align-items:flex-end;
+}
+
+.descriptionCont{
+    height: 100%;
+    width: 450px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    float:left;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    align-items: center;
+    border: black solid 1px;
+    border-radius: 10px;
+    background-color:#8b8b8b;
+    /* background:linear-gradient(to bottom, #a0bee5 5%, #db9e8c 100%); */
+}
+
+.cardDescription{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  font-weight:bolder;
+  text-shadow: 3px 5px 14px black;
+  color: rgb(255, 255, 255);
+  align-items:flex-end;
+}
+
+.cardReleased{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  font-weight:bolder;
+  text-shadow: 3px 5px 14px black;
+  color: rgb(255, 255, 255);
+  align-items:flex-end;
+}
+
+.cardRating{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  font-weight:bolder;
+  text-shadow: 3px 5px 14px black;
+  color: rgb(64, 80, 143);
+  align-items:flex-end;
+}
+
+.cardPlatforms{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  font-weight:bolder;
+  text-shadow: 3px 5px 14px black;
+  color: rgb(255, 255, 255);
+  align-items:flex-end;
+}
+
+.button{
+    top: 2%;
+    padding: 0.6em 2em;
+    border: none;
+    margin: 1rem;
+    outline: none;
+    font-family: monospace;
+    font-size: 130%;
+    color: rgba(255, 255, 255);
+    background: rgba(50, 49, 47);
+    cursor: pointer;
+    position: relative;
+    align-items: center;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: auto;
+}
+
+.button:before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #ffffff,
+        #ffffff,
+        #ffffff,
+        #ffffff,
+        #ffffff,
+        #ffffff,
+        #ffffff,
+        white,
+        white
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.button:after {
+    z-index: -1;
+    content: "";
+    position:absolute ;
+    width: 100%;
+    height: 100%;
+    background: rgba(50, 49, 47);
+    left: 0;
+    top: 0;
+    border-radius: 5px;
+}
+
+
+
+/* .button-30 {
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+  }
+  
+  .button-30:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+  
+  .button-30:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+  .button-30:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  } */

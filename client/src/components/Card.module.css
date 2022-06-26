@@ -1,0 +1,52 @@
+.cardContainer{
+    height: 390px;
+    width: 300px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    float:left;
+    position:inherit;
+    padding:10px;
+    margin-left: 130px;
+    margin-right: 15px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    border: black solid 1px;
+    border-radius: 10px;
+    background-color:#8b8b8b;
+    background:linear-gradient(to bottom, #a0bee5 5%, #db9e8c 100%);
+}
+
+.cardName{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    text-shadow: 3px 5px 14px black;
+    color: rgb(255, 255, 255);
+    background:linear-gradient(to bottom, #cfe4ff 5%, #313d4a 100%);
+	background-color:#f7b96c;
+	border-radius:10px;
+	border:1px solid #ffffff;
+}
+
+.cardImg{
+    width: 280px;
+    height: 175px; 
+    border-radius:10px;
+}
+
+.cardGenres{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    font-weight:bolder;
+    text-shadow: 3px 5px 14px black;
+    color: rgb(255, 255, 255);
+    align-items:flex-end;
+}
+
+.cardRating{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    font-weight:bolder;
+    text-shadow: 3px 5px 14px black;
+    color: rgb(64, 80, 143);
+    align-items:flex-end;
+}

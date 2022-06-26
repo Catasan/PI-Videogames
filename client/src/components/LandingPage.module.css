@@ -1,0 +1,79 @@
+
+.landingImg{
+    background-image: url("https://cdn.wallpapersafari.com/3/94/taJoGd.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.welcome{
+    font-family: monospace;
+    font-size: 500%;
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 5px 14px black;
+    text-align: center;
+    width: 100%;
+    margin: 20px;
+}
+
+.button1 {
+    top: 2%;
+    padding: 0.6em 2em;
+    margin: 20px;
+    border: none;
+    outline: none;
+    font-family: monospace;
+    font-size: 150%;
+    color: rgba(255, 255, 255);
+    background: rgba(50, 49, 47);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: auto;
+}
+
+.button1:before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #ffffff,
+        #ffffff,
+        #ffffff,
+        #ffffff,
+        #ffffff,
+        #ffffff,
+        #ffffff,
+        white,
+        white
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.button1:after {
+    z-index: -1;
+    content: "";
+    position:absolute ;
+    width: 100%;
+    height: 100%;
+    background: rgba(50, 49, 47);
+    left: 0;
+    top: 0;
+    border-radius: 5px;
+}

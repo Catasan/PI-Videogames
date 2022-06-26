@@ -16,6 +16,7 @@ router.post('/', async (req, res, next) => {
         released,
         rating,
         platforms,
+        createdInDb,
         genres,
     } = req.body;
     try{
@@ -26,10 +27,11 @@ router.post('/', async (req, res, next) => {
             released,
             rating,
             platforms,
+            createdInDb,
         });
         genres.forEach(async gen => { //por cada parte del arreglo va a buscar un genero y el que matchee se lo va a agregar
 
-            let genreDb = Genre.findOne({
+            let genreDb = await Genre.findOne({
             where: { name: gen}
         })
         videogameCreated.addGenre(genreDb); // le agrega el genre al videogame creado
@@ -41,15 +43,29 @@ router.post('/', async (req, res, next) => {
 });
 
 router.get('/:id', async (req, res, next) => {
-    const {id} = req.params;
+    const {id} = req.params; //para los VG de la DB
     try{
         if(id.length>10){
         const gameElement = await Videogame.findByPk(id, {
-            include: Genre,
+            include: [{
+                model: Genre,
+                as: 'genres',
+                attributes: ['id', 'name']
+            }]
         });
+        const sendVideogame = {
+            name: gameElement.name,
+            img: gameElement.img,
+            description: gameElement.description,
+            released: gameElement.released,
+            rating: gameElement.rating,
+            platforms: gameElement.platforms,
+            genres: gameElement.genres.map( e => e.name)
+        }
+
         return res.status(200).json(gameElement)
         }
-        else {
+        else { //para los VG de la API
             axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`)
             .then((ans) => {
                 const answer = ans.data;

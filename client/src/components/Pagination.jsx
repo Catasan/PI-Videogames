@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Pagination.module.css';
 //este componente me renderiza los numeros en si
 export default function Pagination ({videogamesPerPage, allVideogames, pagination}){
     const pageNumbers = [];
@@ -8,14 +9,12 @@ export default function Pagination ({videogamesPerPage, allVideogames, paginatio
     }
     return( //check si tengo el pageNumber y si es asi, que me devuelva cada uno de los numeros de paginas
         <nav>
-            <ul className='pagination'>
+            <div>
                 {pageNumbers &&
                 pageNumbers.map(num =>(
-                    <li className='number' key={num}>
-                    <button onClick={() => pagination(num)}>{num}</button>
-                    </li>
+                    <button className= {styles.btnP} onClick={() => pagination(num)}>{num}</button>
                 ))}
-            </ul>
+            </div>
         </nav>
     )
 }
