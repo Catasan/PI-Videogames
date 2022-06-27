@@ -1,6 +1,6 @@
 
 
-import {GET_ALL_VIDEOGAMES, FILTER_BY_GENRE, FILTER_CREATED, GET_DETAIL, CREATE_VIDEOGAME, ORDER_BY_NAME, GET_VIDEOGAMES_NAME, POST_VIDEOGAME, GET_GENRES} from '../actions/index';
+import {GET_ALL_VIDEOGAMES, FILTER_BY_GENRE, FILTER_CREATED, GET_DETAIL, CREATE_VIDEOGAME, ORDER_BY_NAME, GET_VIDEOGAMES_NAME, GET_GENRES, GET_PLATFORMS} from '../actions/index';
 
 const initialState = {
     videogames: [],
@@ -23,6 +23,11 @@ const rootReducer = (state = initialState, action) => {
                     ...state,
                     videogames: action.payload //pq estoy renderizando ese arreglo
                 }
+            case GET_PLATFORMS:
+                return {
+                    ...state,
+                    platforms: action.payload
+                }
             case GET_GENRES:
                 return{
                     ...state, 
@@ -43,7 +48,7 @@ const rootReducer = (state = initialState, action) => {
                         ...state,
                         videogames: action.payload === 'All' ? state.allVideogames : createdFilter //
                     }
-                    case ORDER_BY_NAME: //busco de forma asc, dsp sino desc, devuelvo srtedArray
+                    case ORDER_BY_NAME: //busco de forma asc, dsp sino desc, devuelvo sortedArray
                         let sortedArray = [...state.allVideogames]
                         if (action.payload === 'asc') {
                             sortedArray.sort(function (a, b){

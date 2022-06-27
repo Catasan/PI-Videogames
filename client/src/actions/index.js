@@ -49,15 +49,15 @@ export function getGenres(){
     }
 }
 //Ver como hacer para traerme las PLATFORMS
-// export function getPlatforms(){
-//     return async function (dispatch){ //buscar la forma de que me traiga solo las platforms
-//         var json = await axios.get("http://localhost:3001/videogames", {});
-//         return dispatch({
-//             type: GET_PLATFORMS,
-//             payload: json.data 
-//         })
-//     }
-// }
+export function getPlatforms(){
+    return async function (dispatch){ //buscar la forma de que me traiga solo las platforms
+        var json = await axios.get("http://localhost:3001/videogames", {});
+        return dispatch({
+            type: GET_PLATFORMS,
+            payload: json.data 
+        })
+    }
+}
 
 //para crear el videogame
 // export function postVideogame(payload){

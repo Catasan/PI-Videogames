@@ -39,6 +39,7 @@ export default function Home () {
         dispatch(getAllVideogames());
         dispatch(getGenres());
     },[dispatch]) //[] para que no se genere un loop infinito
+    
 
 
 function handleClick(e){
